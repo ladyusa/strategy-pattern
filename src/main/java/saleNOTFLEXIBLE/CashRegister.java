@@ -1,19 +1,11 @@
-package sale;
+package saleNOTFLEXIBLE;
 
-public class CashRegister {
-    private double purchase;
-    private double payment;
+public abstract class CashRegister {
+    protected double purchase;
+    protected double payment;
 
-    // composition
-    private TaxCalculator calculator;
-
-    public CashRegister(TaxCalculator calculator) {
-        this.calculator = calculator;
+    public CashRegister() {
         reset();
-    }
-
-    public void setCalculator(TaxCalculator calculator) {
-        this.calculator = calculator;
     }
 
     public double getPurchase() {
@@ -28,9 +20,7 @@ public class CashRegister {
         purchase += price;
     }
 
-    public void calculateTax() {
-        purchase = purchase + calculator.calculateTax(purchase);
-    }
+    abstract public void calculateTax();
 
     public void enterPayment(double amount) {
         payment += amount;

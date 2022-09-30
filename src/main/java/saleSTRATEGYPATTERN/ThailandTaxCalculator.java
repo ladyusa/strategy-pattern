@@ -1,4 +1,4 @@
-package sale;
+package saleSTRATEGYPATTERN;
 
 public class ThailandTaxCalculator implements TaxCalculator {
 

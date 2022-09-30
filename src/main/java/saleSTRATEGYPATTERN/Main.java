@@ -1,4 +1,4 @@
-package sale;
+package saleSTRATEGYPATTERN;
 
 public class Main {
 
@@ -18,5 +18,14 @@ public class Main {
 
         System.out.println("Total purchase: " + register.getPurchase());
 
+        // เมื่อใช้ strategy pattern จะช่วยให้
+        // สามารถผลัดเปลี่ยน strategy ได้ง่าย
+        register.setCalculator(new CATaxCalculator());
+        register.reset();
+        register.recordPurchase(30);
+        register.recordPurchase(70);
+        register.calculateTax();
+
+        System.out.println("Total purchase: " + register.getPurchase());
     }
 }
