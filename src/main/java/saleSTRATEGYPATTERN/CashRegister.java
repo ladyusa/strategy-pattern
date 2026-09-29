@@ -7,11 +7,15 @@ public class CashRegister {
     // composition
     private TaxCalculator calculator;
 
+    // dependency injection ผ่านทาง constructor
+    // ถูกบังคับให้ cash register ต้องมี calculator
     public CashRegister(TaxCalculator calculator) {
         this.calculator = calculator;
         reset();
     }
 
+    // dependency injection ผ่านทาง setter method
+    // ช่วยให้สามารถเปลี่ยน tax calculator แบบ dynamic ได้
     public void setCalculator(TaxCalculator calculator) {
         this.calculator = calculator;
     }
@@ -29,7 +33,8 @@ public class CashRegister {
     }
 
     public void calculateTax() {
-        purchase = purchase + calculator.calculateTax(purchase);
+        purchase = purchase +
+                calculator.calculateTax(purchase);  // polymorphism
     }
 
     public void enterPayment(double amount) {
